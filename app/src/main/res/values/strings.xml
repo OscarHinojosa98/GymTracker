@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">GymTracker</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="calendar">Calendar</string>
+    <string-array name="workout_list">
+        <item>"Dumbbell Press"</item>
+        <item>"Incline Press"</item>
+        <item>"Cable Fly"</item>
+        <item>"Barbell Press"</item>
+        <item>"Triceps Extension"</item>
+        <item>"Dips"</item>
+        <item>"Military Press"</item>
+        <item>"Lateral Raise"</item>
+        <item>"Cable Row"</item>
+        <item>"Pulldowns"</item>
+        <item>"Biceps Curl"</item>
+        <item>"Hammer Curl"</item>
+        <item>"Squats"</item>
+        <item>"Leg Press"</item>
+    </string-array>
+    
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_dashboard">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.gymtracker.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.gymtracker.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_selectedDayWorkout"
+            app:destination="@id/selectedDayWorkout" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.gymtracker.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/selectedDayWorkout"
+        android:name="com.example.gymtracker.SelectedDayWorkout"
+        android:label="fragment_selected_day_workout"
+        tools:layout="@layout/fragment_selected_day_workout" >
+        <action
+            android:id="@+id/action_selectedDayWorkout_to_chooseWorkoutFragment"
+            app:destination="@id/chooseWorkoutFragment" />
+        <action
+            android:id="@+id/action_selectedDayWorkout_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseWorkoutFragment"
+        android:name="com.example.gymtracker.ChooseWorkoutFragment"
+        android:label="fragment_choose_workout"
+        tools:layout="@layout/fragment_choose_workout" >
+        <action
+            android:id="@+id/action_chooseWorkoutFragment_to_selectedDayWorkout"
+            app:destination="@id/selectedDayWorkout" />
+    </fragment>
+</navigation>
