@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -49,12 +50,20 @@ class ChooseWorkoutFragment : Fragment() {
             }
         }
 
+
         binding.btnSave.setOnClickListener(){
             val bundle = bundleOf("selected_date" to date)
             val name = binding.tvWorkoutName.text.toString()
             val weight = binding.etWeight.text.toString()
             val reps = binding.etReps.text.toString()
-            if (selectedWorkoutId==-1) {
+            if (binding.tvWorkoutName.text.isBlank() || weight=="" || reps==""){
+                Toast.makeText(
+                    requireContext(),
+                    "You are missing information",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            else if (selectedWorkoutId==-1) {
                 viewModel.insertDayEntry(
                     DayEntry(
                         0,
@@ -64,6 +73,7 @@ class ChooseWorkoutFragment : Fragment() {
                         date
                     )
                 )
+                it.findNavController().navigate(R.id.action_chooseWorkoutFragment_to_selectedDayWorkout,bundle)
             }
             else{
                 viewModel.updateDayEntry(
@@ -75,10 +85,11 @@ class ChooseWorkoutFragment : Fragment() {
                         date
                     )
                 )
+                it.findNavController().navigate(R.id.action_chooseWorkoutFragment_to_selectedDayWorkout,bundle)
             }
-            binding.tvWorkoutName.hint = "Workout"
+            //binding.tvWorkoutName.hint = "Workout"
 
-            it.findNavController().navigate(R.id.action_chooseWorkoutFragment_to_selectedDayWorkout,bundle)
+
         }
         return binding.root
     }

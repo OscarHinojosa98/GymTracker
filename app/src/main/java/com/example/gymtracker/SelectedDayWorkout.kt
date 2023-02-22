@@ -85,6 +85,7 @@ class SelectedDayWorkout : Fragment() {
         binding.rvWorkouts.layoutManager = LinearLayoutManager(context)
         adapter = WorkoutRecyclerViewAdapter{
             selectedItem:DayEntry -> listItemClicked(selectedItem)
+            
         }
         binding.rvWorkouts.adapter = adapter
 
@@ -104,6 +105,7 @@ class SelectedDayWorkout : Fragment() {
         binding.btnEdit.isVisible = true
         binding.btnDelete.isVisible = true
         workoutId = selectedWorkout.id
+
 
         Toast.makeText(
             requireContext(),
